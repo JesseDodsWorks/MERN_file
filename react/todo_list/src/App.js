@@ -1,18 +1,26 @@
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 import './App.css';
 import React, { useState } from "react";
 
 function App() {
 
-  const [Todo, setTodo] = useState([]);
-
+  const test = {
+    taskName : "SampleString",
+    isDone : 0
+  };
+  
+  const [Todo, setTodo] = useState([test]);
+  // todo[0].taskName
   return (
     <div className="App">
       <h3>Todo List</h3>
 
-      <TodoForm setTodoArray={setTodo} todoArray={Todo}/>
-
-      <p>todo: {Todo}</p>
+      <TodoForm todoArray={Todo} setTodoArray={setTodo}/>
+      <hr></hr>
+      <TodoList todoArray={Todo} />
+      
+        
     </div>
   );
 }
