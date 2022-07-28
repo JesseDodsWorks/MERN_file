@@ -1,26 +1,20 @@
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import './App.css';
 import React, { useState } from "react";
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoDisplay from "./components/TodoDisplay";
 
 function App() {
 
-  const test = {
-    taskName : "SampleString",
-    isDone : 0
-  };
-  
-  const [Todo, setTodo] = useState([test]);
-  // todo[0].taskName
+  // const [todoList, setTodoList] = useState([]);
+  const todoState = useState([]);
+  const [todoList, setTodoList] = todoState;
+
   return (
     <div className="App">
-      <h3>Todo List</h3>
 
-      <TodoForm todoArray={Todo} setTodoArray={setTodo}/>
+      <TodoForm todoState={todoState} />
       <hr></hr>
-      <TodoList todoArray={Todo} />
-      
-        
+      <TodoDisplay todoState={todoState} />
     </div>
   );
 }

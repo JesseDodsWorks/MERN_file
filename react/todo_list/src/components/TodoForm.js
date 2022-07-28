@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import {useState} from 'react'
 
-function TodoForm (data) {
+export default function TodoForm(data) {
 
-    const setTodoArray = data.setTodoArray;
+    const [todoList, setTodoList] = data.todoState;
+
     const [taskName, setTaskName] = useState();
 
-    const saveTask = (e) => {
+    const addTask = (e) => {
         e.preventDefault()
-        const taskInfo = {
-            taskName : taskName,
-            isDone : 0
-          };
-        const newArray = [...data.todoArray, taskInfo]
-        setTodoArray(newArray)
-    }
+        setTodoList ([
+            ...todoList,
+            {
+                taskName : taskName,
+                isComplete : false,
+                id : Math.floor(Math.random() * 10000)
+            }
+        ])
+        setTaskName("")
+    };
 
-    return (
-        <>
-            <form>
-                <input type="text" name="todo" placeholder="what is there to do" onChange={(e)=>setTaskName(e.target.value)}/>
-                <button onClick={(e)=>saveTask(e)}>add</button>
-            </form>
-        </>
-    );
+  return (
+    <div>
+        <h3>Enter Task Here</h3>
+        <input type="text" onChange={(e) => setTaskName(e.target.value)} />
+        <button onClick={(e) => addTask(e)}>Add</button>
+    </div>
+  )
 }
-
-export default TodoForm;
