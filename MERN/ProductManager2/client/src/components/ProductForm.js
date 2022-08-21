@@ -27,8 +27,7 @@ export default function ProductForm(props) {
 
 	return (
 		<div className="App">
-			<h3>Product Manager</h3>
-
+			
 			<form onSubmit={onSubmitHandler}>
 				<input placeholder="item" onChange={(e) => setTitle(e.target.value)} value={title} />
 				<input placeholder="price" onChange={(e) => setPrice(e.target.value)} value={price} />

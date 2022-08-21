@@ -17,9 +17,10 @@ export default function Main() {
 
 	return (
 		<div>
-			<h3> inside main</h3>
+			<h3> Product Manager </h3>
 			<ProductForm allState={allState}/>
 			<hr/>
+			<h3> ALl Products </h3>
 			<ProductList allState={allState}/>
 		</div>
 	)
