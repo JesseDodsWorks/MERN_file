@@ -20,7 +20,7 @@ export default function Main() {
 			<h3> Product Manager </h3>
 			<ProductForm allState={allState}/>
 			<hr/>
-			<h3> ALl Products </h3>
+			<h3> ALL Products </h3>
 			<ProductList allState={allState}/>
 		</div>
 	)
