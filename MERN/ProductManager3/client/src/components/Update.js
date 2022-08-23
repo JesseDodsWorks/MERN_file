@@ -6,6 +6,7 @@ export default function Update(props) {
 
     const {id} = useParams();
     const navigate = useNavigate();
+    const [errors, setErrors] = useState({})
 
     const [title, setTitle] = useState()
 	const [price, setPrice] = useState()
@@ -37,7 +38,10 @@ export default function Update(props) {
             console.log(res.data);
             navigate("/home")
         })
-        .catch(err => console.log(err))
+        .catch((err) => {
+            console.log(err.response.data.error.errors)
+            setErrors(err.response.data.error.errors)
+        })
 }
 
 	return (
@@ -45,8 +49,11 @@ export default function Update(props) {
 			
 			<form onSubmit={onSubmitHandler}>
 				<input placeholder="item" onChange={(e) => setTitle(e.target.value)} value={title} />
+				{errors.title && <span>{errors.title.message}</span>}
 				<input placeholder="price" onChange={(e) => setPrice(e.target.value)} value={price} />
+				{errors.price && <span>{errors.price.message}</span>}
 				<input placeholder="description" onChange={(e) => setDescription(e.target.value)} value={description} />
+				{errors.description && <span>{errors.description.message}</span>}
 				<button type="submit"> create </button>
 			</form>
 

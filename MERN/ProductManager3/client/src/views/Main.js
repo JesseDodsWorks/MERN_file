@@ -6,7 +6,7 @@ import ProductList from '../components/ProductList';
 export default function Main() {
 
 	const [title, setTitle] = useState("");
-	const [price, setPrice] = useState(0);
+	const [price, setPrice] = useState();
 	const [description, setDescription] = useState("");
 
 	const allState = [
@@ -16,7 +16,7 @@ export default function Main() {
 	] 
 
 	return (
-		<div>
+		<div >
 			<h3> Product Manager </h3>
 			<ProductForm allState={allState}/>
 			<hr/>

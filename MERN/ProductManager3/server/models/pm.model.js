@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 
 const ProductsSchema = new mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: [true, "title cannot be blank"],
+        minlength: [2, "title cannot be less than 2 characters"],
     },
     price: {
-        type: Number
+        type: Number,
+        required: [true, "price cannot be blank"]
     },
     description: {
-        type: String
+        type: String,
+        required: [true, "description cannot be blank"]
     },
 },
     { timestamps: true }

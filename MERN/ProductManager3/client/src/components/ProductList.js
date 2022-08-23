@@ -35,11 +35,11 @@ export default function ProductList(props) {
 				console.log(err);
 			})
 	}
-
+ee
 
 	return (
-		<div>
-			<table>
+		<div style={{width:"50%"}} className='xm-auto'>
+			<table className='table table-striped'>
 				<thead>
 					<tr>
 						<th>Products</th>
