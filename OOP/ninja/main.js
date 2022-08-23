@@ -1,3 +1,4 @@
+
 class Ninja {
     constructor(name, health, speed=3, strength=3) {
         this.name = name;

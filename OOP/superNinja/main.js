@@ -15,9 +15,18 @@ class Ninja {
         this.health +=10
     }
 }
+class Sensei  extends Ninja {
+    constructor(name, health=200, speed=10, strength=10, wisdom=10) {
+        super(name, health, speed, strength);
+        this.wisdom = wisdom
+    }
+    speakWisdom() {
+        this.drinkSake();
+        console.log(`I sure am the smartest in the land...`);
+    }
+}
 
-const ninja1 = new Ninja("Hyabusa", 100);
-ninja1.sayName();
-ninja1.showStats();
-ninja1.drinkSake();
-ninja1.showStats();
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+
+superSensei.showStats();
